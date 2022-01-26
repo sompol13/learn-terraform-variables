@@ -21,18 +21,13 @@ module "vpc" {
   cidr = var.vpc_cidr_block
 
   azs             = data.aws_availability_zones.available.names
-  private_subnets = ["10.0.101.0/24", "10.0.102.0/24"]
-  public_subnets  = ["10.0.1.0/24", "10.0.2.0/24"]
   private_subnets = slice(var.private_subnet_cidr_blocks, 0, var.private_subnet_count)
   public_subnets  = slice(var.public_subnet_cidr_blocks, 0, var.public_subnet_count)
 
   enable_nat_gateway = true
   enable_vpn_gateway = var.enable_vpn_gateway
 
-  tags = {
-    project     = "project-alpha",
-    environment = "dev"
-  }
+  tags = var.resource_tags
 }
 
 module "app_security_group" {
@@ -45,10 +40,7 @@ module "app_security_group" {
 
   ingress_cidr_blocks = module.vpc.public_subnets_cidr_blocks
 
-  tags = {
-    project     = "project-alpha",
-    environment = "dev"
-  }
+  tags = var.resource_tags
 }
 
 module "lb_security_group" {
@@ -61,10 +53,7 @@ module "lb_security_group" {
 
   ingress_cidr_blocks = ["0.0.0.0/0"]
 
-  tags = {
-    project     = "project-alpha",
-    environment = "dev"
-  }
+  tags = var.resource_tags
 }
 
 resource "random_string" "lb_id" {
@@ -102,10 +91,7 @@ module "elb_http" {
     timeout             = 5
   }
 
-  tags = {
-    project     = "project-alpha",
-    environment = "dev"
-  }
+  tags = var.resource_tags
 }
 
 module "ec2_instances" {
@@ -116,8 +102,5 @@ module "ec2_instances" {
   subnet_ids         = module.vpc.private_subnets[*]
   security_group_ids = [module.app_security_group.this_security_group_id]
 
-  tags = {
-    project     = "project-alpha",
-    environment = "dev"
-  }
+  tags = var.resource_tags
 }

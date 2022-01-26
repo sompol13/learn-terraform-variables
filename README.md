@@ -21,6 +21,7 @@ In this tutorial, you will use Terraform to deploy a web application on AWS. The
 ### List public and private subnets
 - `terraform console`
 - Refer to the variable by name to return the entire list.
+- `terraform console`
 - `var.private_subnet_cidr_blocks`
 - Retrieve the second element from the list by index with square brackets.
 - `var.private_subnet_cidr_blocks[1]`
@@ -30,6 +31,13 @@ In this tutorial, you will use Terraform to deploy a web application on AWS. The
 *Leave the console by typing exit or pressing Control-D.*
 
 - Now use the slice function to extract a subset of the cidr block lists in `main.tf` when defining your VPC's public and private subnet configuration.
+
+### Map resource tags
+- Declare a new `map` variable for resource tags in `variables.tf`.
+- `terraform console`
+- Retrieve the value of the `environment` key from the `resource_tags` map.
+- `var.resource_tags["environment"]`
+- Now, replace the hard coded tags in `main.tf` with references to the new variable.
 
 ### Reference
 https://learn.hashicorp.com/tutorials/terraform/variables
