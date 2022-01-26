@@ -18,5 +18,18 @@ In this tutorial, you will use Terraform to deploy a web application on AWS. The
 - Use a `bool` type variable to control whether your VPC is configured with a VPN gateway. Add the following to `variables.tf`.
 - Use this new variable in your VPC configuration by editing `main.tf` as follows.
 
+### List public and private subnets
+- `terraform console`
+- Refer to the variable by name to return the entire list.
+- `var.private_subnet_cidr_blocks`
+- Retrieve the second element from the list by index with square brackets.
+- `var.private_subnet_cidr_blocks[1]`
+- Now use the slice() function to return the first three elements from the list.
+- `slice(var.private_subnet_cidr_blocks, 0, 3)`
+
+*Leave the console by typing exit or pressing Control-D.*
+
+- Now use the slice function to extract a subset of the cidr block lists in `main.tf` when defining your VPC's public and private subnet configuration.
+
 ### Reference
 https://learn.hashicorp.com/tutorials/terraform/variables
