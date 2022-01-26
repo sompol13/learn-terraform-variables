@@ -1,6 +1,8 @@
 ## Customize Terraform Configuration with Variables
 In this tutorial, you will use Terraform to deploy a web application on AWS. The supporting infrastructure includes a VPC, load balancer, and EC2 instances. You will parameterize this configuration with Terraform input variables. Finally, you will interpolate variables into strings, use variables with functions, and use variable validation.
 
+![Load Balancer](https://user-images.githubusercontent.com/33342822/151195260-363f3f3d-5d9c-44eb-8ced-dc42fa8b34aa.png)
+
 ### Create infrastructure
 - `terraform init`
 - `terraform apply`
