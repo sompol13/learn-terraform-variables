@@ -14,5 +14,9 @@ In this tutorial, you will use Terraform to deploy a web application on AWS. The
 - Use a number type to define the number of instances supported by this configuration. Add the following to `variables.tf`.
 - Update EC2 instances to use the `instance_count` variable in `main.tf`.
 
+### Toggle VPN gateway support
+- Use a `bool` type variable to control whether your VPC is configured with a VPN gateway. Add the following to `variables.tf`.
+- Use this new variable in your VPC configuration by editing `main.tf` as follows.
+
 ### Reference
 https://learn.hashicorp.com/tutorials/terraform/variables
