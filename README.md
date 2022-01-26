@@ -10,5 +10,9 @@ In this tutorial, you will use Terraform to deploy a web application on AWS. The
 - Add a declaration for the `vpc_cidr_block` variable to variables.tf.
 - Replace the hard-coded value for the VPC's CIDR block with a variable in `main.tf`.
 
+### Set the number of instances
+- Use a number type to define the number of instances supported by this configuration. Add the following to `variables.tf`.
+- Update EC2 instances to use the `instance_count` variable in `main.tf`.
+
 ### Reference
 https://learn.hashicorp.com/tutorials/terraform/variables
