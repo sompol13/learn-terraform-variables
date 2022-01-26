@@ -39,5 +39,9 @@ In this tutorial, you will use Terraform to deploy a web application on AWS. The
 - `var.resource_tags["environment"]`
 - Now, replace the hard coded tags in `main.tf` with references to the new variable.
 
+### Assign values when prompted
+- Add a new variable without a default value to `variables.tf`.
+- Replace the reference to the EC2 instance type in `main.tf`.
+
 ### Reference
 https://learn.hashicorp.com/tutorials/terraform/variables
