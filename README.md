@@ -46,5 +46,12 @@ In this tutorial, you will use Terraform to deploy a web application on AWS. The
 ### Assign values with a `terraform.tfvars` file
 - Create a file named `terraform.tfvars` with the following contents.
 
+### Interpolate variables in strings
+- Update the names of the security groups to use the project and environment values from the `resource_tags` map.
+- `terraform apply`
+
+### Validate variables
+- `terraform apply -var='resource_tags={project="my-project",environment="development"}'`
+
 ### Reference
 https://learn.hashicorp.com/tutorials/terraform/variables
