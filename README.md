@@ -43,5 +43,8 @@ In this tutorial, you will use Terraform to deploy a web application on AWS. The
 - Add a new variable without a default value to `variables.tf`.
 - Replace the reference to the EC2 instance type in `main.tf`.
 
+### Assign values with a `terraform.tfvars` file
+- Create a file named `terraform.tfvars` with the following contents.
+
 ### Reference
 https://learn.hashicorp.com/tutorials/terraform/variables
